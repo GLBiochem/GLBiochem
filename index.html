@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>GL Biochem</title>
+<link rel="stylesheet" href="scr/style/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="announce-bar" id="announceBar">
+  <div class="announce-track" id="announceTrack"></div>
+  <button class="ab-close" id="announceClose" aria-label="Fechar aviso">✕</button>
+</div>
+
+<header class="site">
+  <div class="header-row">
+    <div class="brand">
+      <a href="index.html"><span class="brand-mark">GL Biochem</span></a>
+      <span class="brand-mark-sub">BRAZIL</span>
+    </div>
+
+    <nav class="tabs" id="tabsDesktop"></nav>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar produto…" autocomplete="off" />
+      <div class="search-dropdown" id="searchDropdown"></div>
+    </div>
+
+    <button class="icon-btn" id="openCart" aria-label="Abrir carrinho">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-count" id="cartCount" style="display:none">0</span>
+    </button>
+  </div>
+  <nav class="mobile-tabs" id="tabsMobile"></nav>
+</header>
+
+<!-- ===== INÍCIO ===== -->
+<div class="view active" id="view-inicio">
+  <div class="slideshow">
+    <div class="slideshow-frame" id="slideFrame">
+      <button class="slide-nav slide-prev" id="slidePrev" aria-label="Slide anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="slide-nav slide-next" id="slideNext" aria-label="Próximo slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="slide-dots" id="slideDots"></div>
+  </div>
+  <section class="catalog" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Mais Procurados</h2>
+        <button data-goto="produtos" style="background:none;border:none;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;">Ver todos os produtos →</button>
+      </div>
+      <div class="grid" id="popularGrid"></div>
+    </div>
+  </section>
+
+  <div class="home-why">
+    <h2>Por que nos escolher?</h2>
+    <p class="why-sub">Mais do que uma loja, somos parceiros na sua jornada de beleza e bem-estar</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></span>
+        <h3>Produtos de Alta Qualidade</h3>
+        <p>Produtos certificados e selecionados para garantir os melhores resultados.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+        <h3>Atendimento Humanizado</h3>
+        <p>Suporte dedicado via WhatsApp para tirar todas as suas dúvidas.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        <h3>Envio Ágil</h3>
+        <p>Despachamos rapidinho após a confirmação do pedido pelo WhatsApp.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+        <h3>Pagamento Facilitado</h3>
+        <p>Pix, cartão ou a forma que for melhor pra você, combinada direto no WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-categories">
+    <div class="section-head">
+      <h2>Navegar por Categorias</h2>
+      <button data-goto="produtos" style="background:none;border:none;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;">Ver todos os produtos →</button>
+    </div>
+    <div class="cat-tiles" id="homeCatTiles"></div>
+  </div>
+
+  <div class="home-testimonials">
+    <div class="section-head">
+      <h2>O que nossos clientes dizem</h2>
+      <span></span>
+    </div>
+    <div class="testi-carousel" id="testiCarousel">
+      <button class="testi-nav testi-prev" id="testiPrev" aria-label="Depoimento anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack"></div>
+      </div>
+      <button class="testi-nav testi-next" id="testiNext" aria-label="Próximo depoimento">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </div>
+
+  <div class="home-faq">
+    <div class="section-head">
+      <h2>Perguntas Frequentes</h2>
+      <span></span>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</div>
+
+<!-- ===== PRODUTOS ===== -->
+<div class="view" id="view-produtos">
+  <section class="catalog">
+    <div class="wrap catalog-layout">
+      <aside class="filters-sidebar">
+        <div class="filter-group">
+          <button class="filter-group-head" data-target="filterCatBody">
+            <span>Categoria</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-group-body" id="filterCatBody"></div>
+        </div>
+        <div class="filter-group">
+          <button class="filter-group-head" data-target="filterGoalBody">
+            <span>Objetivo</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-group-body" id="filterGoalBody"></div>
+        </div>
+        <button class="filter-clear" id="filterClearBtn">Limpar filtros</button>
+      </aside>
+
+      <div class="catalog-main">
+        <div class="section-head">
+          <h2 id="catalogTitle">Todos os produtos</h2>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span id="catalogCount"></span>
+            <select id="sortSelect" style="border:1px solid var(--line); border-radius:4px; padding:7px 10px; font-size:13px; color:var(--ink); background:var(--paper);">
+              <option value="relevance">Relevância</option>
+              <option value="bestselling">Mais vendidos</option>
+              <option value="leastselling">Menos vendidos</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+              <option value="name-asc">Nome (A–Z)</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid" id="productGrid"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== GUIA DE USO ===== -->
+<div class="view" id="view-guia">
+  <section class="guide">
+    <div class="guide-toolbar">
+      <div class="search-wrap guide-search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="guideSearchInput" placeholder="Buscar produto…" autocomplete="off" />
+      </div>
+      <select id="guideCatSelect" class="guide-cat-select"></select>
+      <button class="guide-export-btn" id="guideExportBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Exportar PDF
+      </button>
+    </div>
+    <p class="guide-results-count" id="guideResultsCount"></p>
+
+    <div class="guide-banner" id="guideBanner"></div>
+
+    <div id="guideGrid"></div>
+    <p class="guide-note">As orientações acima seguem as informações de rótulo/bula de cada fabricante. Consulte sempre um profissional de saúde antes de iniciar o uso de qualquer suplemento, especialmente se você tiver alguma condição de saúde ou fizer uso de outros medicamentos.</p>
+  </section>
+</div>
+
+<!-- ===== CALCULADORA DE PEPTÍDEOS (GL BIOCHEM) ===== -->
+<div class="view" id="view-calculadora">
+  <section class="calc">
+    <div class="section-head">
+      <h2>Calculadora de Reconstituição e Dosagem</h2>
+      <span>Ajuste e dosagem de peptídeos</span>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-card">
+        <div class="calc-card-head">
+          <span class="calc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg></span>
+          <h3>1. Selecionar ou Digitar Peptídeo</h3>
+        </div>
+        <div class="calc-row">
+          <label for="calcProduct">Selecionar do Catálogo (Opcional)</label>
+          <select id="calcProduct"><option value="">-- Seleção manual --</option></select>
+        </div>
+        <div class="calc-row">
+          <label for="calcVialMg">Massa do Peptídeo no Frasco (mg)</label>
+          <input type="number" id="calcVialMg" min="0.1" step="0.1" value="10" placeholder="Ex: 10, 20, 30..." />
+        </div>
+        <div class="calc-row">
+          <label for="calcWaterMl">Água Bacteriostática Adicionada (mL)</label>
+          <input type="number" id="calcWaterMl" min="0.1" step="0.1" value="2" placeholder="Ex: 1, 2, 2.5, 3..." />
+        </div>
+        <div class="calc-row">
+          <label for="calcDoseVal">Dose Desejada por Aplicação</label>
+          <div style="display:flex; gap:8px;">
+            <input type="number" id="calcDoseVal" min="0.01" step="0.01" value="2.5" placeholder="Ex: 2.5 ou 500" style="flex:1;" />
+            <select id="calcDoseUnit" style="width:100px;">
+              <option value="mg" selected>mg</option>
+              <option value="mcg">mcg</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-row">
+          <label for="calcSyringeType">Tamanho de Seringa</label>
+          <select id="calcSyringeType">
+            <option value="100" selected>100 UI (1.0 mL)</option>
+            <option value="50">50 UI (0.5 mL)</option>
+            <option value="30">30 UI (0.3 mL)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-card-head">
+          <span class="calc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <h3>2. Resultado da Medição</h3>
+        </div>
+        <div id="calcResult"></div>
+      </div>
+    </div>
+
+    <p class="calc-note"><strong>Aviso:</strong> Esta calculadora é fornecida apenas para fins educacionais e de pesquisa. Sempre consulte um profissional qualificado antes de realizar qualquer procedimento. A Shandong Peptídeos não se responsabiliza pelo uso indevido das informações fornecidas.</p>
+
+    <div class="calc-guides-card">
+      <div class="calc-card-head" style="margin-bottom:0;">
+        <span class="calc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+        <h3>Outros Guias Essenciais</h3>
+      </div>
+      <div class="calc-guides-grid">
+        <button class="calc-guide-link" data-goto="guia">
+          <span class="calc-guide-top">
+            <span class="cg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+            <span class="cg-title">Guia de Uso</span>
+          </span>
+          <span class="cg-sub">Como e quando usar cada produto, direto do rótulo do fabricante.</span>
+          <span class="cg-cta">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </button>
+
+        <button class="calc-guide-link" data-goto="inicio">
+          <span class="calc-guide-top">
+            <span class="cg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="cg-title">Perguntas Frequentes</span>
+          </span>
+          <span class="cg-sub">Dúvidas sobre pedidos, pagamento, entrega e trocas.</span>
+          <span class="cg-cta">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </button>
+
+        <button class="calc-guide-link" id="calcWhatsLink">
+          <span class="calc-guide-top">
+            <span class="cg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+            <span class="cg-title">Falar no WhatsApp</span>
+          </span>
+          <span class="cg-sub">Tire dúvidas direto com a loja, sem complicação.</span>
+          <span class="cg-cta">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== POLÍTICA DE PRIVACIDADE ===== -->
+<div class="view" id="view-privacidade">
+  <section class="legal">
+    <h2>Política de Privacidade</h2>
+    <p class="legal-updated">Última atualização: <span class="legal-date"></span></p>
+
+    <p>A GL Biochem respeita a sua privacidade e segue a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD) no tratamento das informações coletadas neste site.</p>
+
+    <h3>1. Quais dados coletamos</h3>
+    <p>Não exigimos cadastro para navegar ou montar seu carrinho. Os itens do seu carrinho ficam salvos apenas no seu próprio navegador (armazenamento local), e não são enviados aos nossos servidores.</p>
+    <p>Ao finalizar um pedido pelo WhatsApp, você pode compartilhar conosco, de forma voluntária, dados como nome, telefone, endereço de entrega e forma de pagamento, necessários para processar sua compra.</p>
+
+    <h3>2. Para que usamos seus dados</h3>
+    <ul>
+      <li>Processar e entregar seu pedido;</li>
+      <li>Esclarecer dúvidas e prestar suporte pós-venda;</li>
+      <li>Cumprir obrigações legais e fiscais, quando aplicável.</li>
+    </ul>
+
+    <h3>3. Compartilhamento de dados</h3>
+    <p>Não vendemos nem compartilhamos seus dados com terceiros para fins de marketing. Seus dados só são repassados a transportadoras ou parceiros estritamente necessários para viabilizar a entrega do seu pedido.</p>
+
+    <h3>4. Seus direitos</h3>
+    <p>Você pode, a qualquer momento, solicitar a confirmação, correção, exclusão ou portabilidade dos seus dados pessoais, entrando em contato pelo WhatsApp da loja.</p>
+
+    <h3>5. Contato</h3>
+    <p>Dúvidas sobre esta política podem ser enviadas pelo WhatsApp, no link de Contato no rodapé do site.</p>
+
+    <button class="back-btn" data-goto="inicio" style="background:none;border:1px solid var(--line);padding:10px 18px;border-radius:4px;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;">← Voltar ao início</button>
+  </section>
+</div>
+
+<!-- ===== TERMOS DE USO ===== -->
+<div class="view" id="view-termos-uso">
+  <section class="legal">
+    <h2>Termos de Uso</h2>
+    <p class="legal-updated">Última atualização: <span class="legal-date"></span></p>
+
+    <p>Estes Termos de Uso regulam o acesso e a navegação no site da GL Biochem. Ao utilizar este site, você concorda com as condições abaixo.</p>
+
+    <h3>1. Sobre o site</h3>
+    <p>Este site funciona como catálogo digital de produtos. A finalização da compra e o pagamento são feitos diretamente pelo WhatsApp com a loja, e não há processamento de pagamento dentro do site.</p>
+
+    <h3>2. Uso permitido</h3>
+    <p>Você pode navegar pelo catálogo, montar seu carrinho e utilizar as ferramentas do site (guia de uso e calculadora de dosagem) para fins pessoais e não comerciais, salvo acordo expresso com a loja para revenda ou compra em atacado.</p>
+
+    <h3>3. Informações do catálogo</h3>
+    <p>Imagens, descrições, preços e disponibilidade dos produtos podem ser alterados a qualquer momento, sem aviso prévio. Em caso de divergência entre o valor exibido no site e o confirmado no WhatsApp no momento da compra, prevalece o valor confirmado na conversa.</p>
+
+    <h3>4. Guia de uso e calculadora</h3>
+    <p>As informações da seção "Guia de Uso" e da "Calculadora de Reconstituição" têm caráter meramente informativo, baseadas nas instruções de rótulo/bula de cada fabricante. Elas não substituem orientação de um profissional de saúde e não constituem recomendação médica ou nutricional individualizada.</p>
+
+    <h3>5. Propriedade intelectual</h3>
+    <p>Textos, layout e identidade visual deste site pertencem à GL Biochem e não podem ser reproduzidos sem autorização.</p>
+
+    <h3>6. Alterações</h3>
+    <p>Estes Termos podem ser atualizados periodicamente. O uso continuado do site após alterações representa concordância com a versão vigente.</p>
+
+    <button class="back-btn" data-goto="inicio" style="background:none;border:1px solid var(--line);padding:10px 18px;border-radius:4px;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;">← Voltar ao início</button>
+  </section>
+</div>
+
+<!-- ===== TERMOS DE COMPRA ===== -->
+<div class="view" id="view-termos-compra">
+  <section class="legal">
+    <h2>Termos de Compra</h2>
+    <p class="legal-updated">Última atualização: <span class="legal-date"></span></p>
+
+    <h3>1. Como funciona o pedido</h3>
+    <p>Você monta seu carrinho no site e clica em "Finalizar no WhatsApp". Isso abre uma conversa com a loja já com a lista de produtos, quantidades e valor total. A confirmação do pedido, forma de pagamento e prazo de entrega são combinados diretamente nessa conversa.</p>
+
+    <h3>2. Formas de pagamento</h3>
+    <p>As formas de pagamento aceitas (Pix, cartão, dinheiro na entrega, entre outras) são informadas e combinadas no atendimento via WhatsApp.</p>
+
+    <h3>3. Prazo e frete</h3>
+    <p>Prazos de entrega e valores de frete variam conforme a sua localização e são informados no atendimento, antes da confirmação do pedido.</p>
+
+    <h3>4. Direito de arrependimento</h3>
+    <p>Conforme o Código de Defesa do Consumidor (art. 49), você tem até 7 dias corridos após o recebimento do produto para desistir da compra, sem necessidade de justificativa, tendo direito à devolução integral do valor pago. O produto deve ser devolvido sem sinais de uso e, sempre que possível, na embalagem original.</p>
+
+    <h3>5. Trocas por defeito</h3>
+    <p>Produtos com defeito de fabricação ou avaria no transporte podem ser trocados ou reembolsados. Entre em contato pelo WhatsApp em até 7 dias após o recebimento, informando o número do pedido e enviando fotos do problema.</p>
+
+    <h3>6. Cancelamento</h3>
+    <p>Pedidos ainda não enviados podem ser cancelados a pedido do cliente, entrando em contato pelo WhatsApp da loja.</p>
+
+    <button class="back-btn" data-goto="inicio" style="background:none;border:1px solid var(--line);padding:10px 18px;border-radius:4px;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;">← Voltar ao início</button>
+  </section>
+</div>
+
+<!-- ===== PÁGINA DE PRODUTO ===== -->
+<div class="view" id="view-produto-detalhe">
+  <section class="pdp">
+    <button class="pdp-back" data-goto="produtos">← Voltar aos produtos</button>
+
+    <div class="pdp-top">
+      <div>
+        <div class="pdp-main-image" id="pdpMainImage"></div>
+        <div class="pdp-thumbs" id="pdpThumbs"></div>
+      </div>
+      <div>
+        <span class="pdp-cat" id="pdpCat"></span>
+        <h1 class="pdp-name" id="pdpName"></h1>
+        <div class="pdp-rating">
+          <span class="stars" id="pdpStars"></span>
+          <span class="count" id="pdpRatingCount"></span>
+        </div>
+        <div class="pdp-price-row">
+          <span class="pdp-price-old" id="pdpPriceOld" style="display:none;"></span>
+          <span class="pdp-price" id="pdpPrice"></span>
+        </div>
+
+        <p class="pdp-desc-short" id="pdpDescShort"></p>
+
+        <div class="pdp-qty-row">
+          <div class="qty-selector">
+            <button id="pdpQtyMinus" aria-label="Diminuir">−</button>
+            <span id="pdpQtyValue">1</span>
+            <button id="pdpQtyPlus" aria-label="Aumentar">+</button>
+          </div>
+          <button class="pdp-fav-btn" id="pdpFavBtn">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Favoritar
+          </button>
+        </div>
+        <button class="pdp-add-btn" id="pdpAddBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span id="pdpAddBtnLabel">Adicionar ao carrinho</span>
+        </button>
+
+        <div class="pdp-tabs">
+          <button class="pdp-tab active" data-panel="pdpPanelDesc">Descrição</button>
+          <button class="pdp-tab" data-panel="pdpPanelRev">Avaliações</button>
+        </div>
+        <div class="pdp-tab-panel active" id="pdpPanelDesc"></div>
+        <div class="pdp-tab-panel" id="pdpPanelRev"></div>
+      </div>
+    </div>
+
+    <div class="pdp-related-head">
+      <h2>Você também pode gostar</h2>
+      <div class="pdp-related-nav">
+        <button id="pdpRelPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button id="pdpRelNext" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="pdp-related-track" id="pdpRelatedTrack"></div>
+  </section>
+</div>
+
+<footer id="rodape">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-mark" style="font-size:20px">GL Biochem</span>
+        <p class="foot-note">Produtos para o seu dia a dia. Pedidos e dúvidas são atendidos diretamente pelo WhatsApp.</p>
+      </div>
+
+      <div class="foot-columns">
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><button data-goto="produtos" data-cat="Todos">Todos os Produtos</button></li>
+          <li><button data-goto="produtos" data-cat="Metabólico">Metabólico</button></li>
+          <li><button data-goto="produtos" data-cat="Energia celular">Energia celular</button></li>
+          <li><button data-goto="produtos" data-cat="Estética">Estética</button></li>
+          <li><button data-goto="produtos" data-cat="Recuperação">Recuperação</button></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Guias</h4>
+        <ul>
+          <li><button data-goto="guia">Guia de Uso</button></li>
+          <li><button data-goto="calculadora">Calculadora de Dosagem</button></li>
+          <li><button data-goto="guia">Como Comprar</button></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Minha Conta</h4>
+        <ul>
+          <li><a id="footMeusPedidos" href="#" target="_blank" rel="noopener">Meus Pedidos</a></li>
+          <li><button id="footCarrinho">Carrinho</button></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a id="footContato" href="#" target="_blank" rel="noopener">Contato</a></li>
+          <li><button data-goto="privacidade">Política de Privacidade</button></li>
+          <li><button data-goto="termos-uso">Termos de Uso</button></li>
+          <li><button data-goto="termos-compra">Termos de Compra</button></li>
+          <li><a id="footGrupo" href="#" target="_blank" rel="noopener">Grupo no WhatsApp</a></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      © <span id="footYear"></span> GL Biochem. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Seu carrinho</h3>
+    <button id="closeCart" aria-label="Fechar carrinho">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Total</span><span id="drawerTotal">R$ 0,00</span></div>
+    <button class="whats-btn" id="checkoutBtn" disabled>Finalizar no WhatsApp</button>
+    <p class="drawer-hint">Você será direcionado ao WhatsApp da loja com o pedido pronto para envio.</p>
+  </div>
+</aside>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<div class="notify-overlay" id="notifyOverlay">
+  <div class="notify-modal">
+    <button class="notify-close" id="notifyClose" aria-label="Fechar">✕</button>
+    <h3>Avise-me quando chegar</h3>
+    <p class="notify-sub">Informe seu WhatsApp para receber uma notificação quando <strong id="notifyProductName"></strong> voltar ao estoque.</p>
+    <label class="notify-label" for="notifyPhoneInput">WhatsApp</label>
+    <input type="tel" id="notifyPhoneInput" class="notify-input" placeholder="(00) 00000-0000" />
+    <button class="notify-submit" id="notifySubmit">Notifique-me</button>
+  </div>
+</div>
+
+<div class="mobile-bar" id="mobileBar">
+  <span class="mb-total" id="mobileTotal">R$ 0,00</span>
+  <button id="mobileOpenCart">Ver carrinho</button>
+</div>
+
+<script src="scr/script/scrpt.js"></script>
+
+</body>
+</html>
