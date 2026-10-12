@@ -20,7 +20,6 @@
     guideVideoUrl: "",
     notifySheetUrl: "https://script.google.com/macros/s/AKfycbyD8zYhuSYThcdx-9H3gsXHMQOQQKzNtPOu2jmZCiG45-VmoqsTCDlDiTS-Yu6y93NCjQ/exec",
     announcements: [
-      { text: "Ganhe 10% de cashback em todas as compras!", icon: `<line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>` },
       { text: "Frete GRÁTIS em compras acima de R$1.000", icon: `<rect x="1" y="7" width="13" height="10" rx="1"/><path d="M14 10h3l3 3v4h-6z"/><circle cx="6" cy="19" r="2"/><circle cx="16.5" cy="19" r="2"/>` },
       { text: "Atendimento rápido direto pelo WhatsApp", icon: `<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>` }
     ],
@@ -142,9 +141,9 @@
       },
       {
         id: "p11", images: ["aicar.jfif", "aicar-2.png"], name: "AICAR 50mg", price: 600.00, category: "Metabólico",
-        desc: "Ativador da enzima AMPK, ligada ao gasto de energia.", Conc: "25 mg/mL",
-        Dosagem: "",
-        specSize: "50 mg", specUsage: "Injeção subcutânea", specFreq: "", specYield: "", uiSeringa: "", aguaB: "",
+        desc: "Ativador da enzima AMPK, ligada ao gasto de energia.", Conc: "16,6 mg/mL",
+        Dosagem: "1-2mg",
+        specSize: "50 mg", specUsage: "Injeção subcutânea", specFreq: "1x por semana", specYield: "8-10 semanas", uiSeringa: "10–20 UI", aguaB: "3ml",
         vialMg: 50, defaultWaterMl: 2, defaultDoseVal: 500, defaultDoseUnit: "mcg",
         sales: 110, goals: ["Metabolismo", "Composição corporal"], inStock: true
       },
